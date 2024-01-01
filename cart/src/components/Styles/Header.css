@@ -1,0 +1,23 @@
+.Header-wrapper {
+  background-color: #008b8b;
+  padding-top: 2rem;
+  padding: 50px;
+}
+
+.Header-logo > h1 {
+  color: aliceblue;
+  padding: 20px;
+}
+
+.Cart-itemsNumber {
+  background-color: aliceblue;
+  color: #008b8b;
+  font-size: x-large;
+  height: 26px;
+  width: 26px;
+  padding: 9px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 50%;
+  margin-left: 50px;
+}
