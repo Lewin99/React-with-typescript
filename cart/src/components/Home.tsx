@@ -1,12 +1,11 @@
 import React from "react";
-import Header from "./Header";
 import Card from "./Card";
+import products from "../components/productsData/products";
 
 const Home: React.FC<{}> = () => {
   return (
     <div>
-      <Header />
-      <Card />
+      <Card products={products} />
     </div>
   );
 };

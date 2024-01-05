@@ -7,14 +7,16 @@
 .Header-logo > h1 {
   color: aliceblue;
   padding: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .Cart-itemsNumber {
   background-color: aliceblue;
-  color: #008b8b;
+  color: #282c34;
   font-size: x-large;
-  height: 26px;
-  width: 26px;
+  height: 18px;
+  width: 18px;
   padding: 9px;
   padding-left: 18px;
   padding-right: 18px;
