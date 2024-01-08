@@ -1,12 +1,15 @@
 import React from "react";
 import Card from "./Card";
 import products from "../components/productsData/products";
+import Layout from "./Layout";
 
 const Home: React.FC<{}> = () => {
   return (
-    <div>
-      <Card products={products} />
-    </div>
+    <Layout>
+      <div>
+        <Card products={products} />
+      </div>
+    </Layout>
   );
 };
 
