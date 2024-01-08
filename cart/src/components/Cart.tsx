@@ -1,7 +1,14 @@
 import React from "react";
+import "./Styles/Cart.css";
 
-function Cart() {
-  return <div>Cart</div>;
-}
+const Cart: React.FC<{}> = () => {
+  return (
+    <div>
+      <div className="cart-Items">
+        <h1>Cart</h1>
+      </div>
+    </div>
+  );
+};
 
 export default Cart;
