@@ -1,12 +1,19 @@
 import React from "react";
 import "./Styles/Card.css";
 import { Product } from "./productsData/products";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Reducers/CartReducer";
 
 interface CardProps {
   products: Product[];
 }
 
 const Card: React.FC<CardProps> = ({ products }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item: Product) => {
+    dispatch(addToCart(item));
+  };
   return (
     <div className="container">
       <div className="Cards row row-cols-1 row-cols-md-2 row-cols-lg-3  g-4">
@@ -25,7 +32,12 @@ const Card: React.FC<CardProps> = ({ products }) => {
                   <h4 className="card-price-tag">{product.price}$</h4>
                 </div>
                 <div className="card-button">
-                  <button className="Cardbtn ">Add to cart</button>
+                  <button
+                    className="Cardbtn"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </div>

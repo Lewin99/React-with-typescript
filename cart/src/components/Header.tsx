@@ -2,8 +2,16 @@ import React from "react";
 import "./Styles/Header.css";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useSelector } from "react-redux";
+import { CartItem } from "../Reducers/CartReducer";
 
 const Header: React.FC<{}> = () => {
+  const cartItems: CartItem[] = useSelector(
+    (state: { items: CartItem[] }) => state.items
+  );
+
+  const totalItems = cartItems.length;
+
   return (
     <div className="container-fluid Header-wrapper">
       {/*logo section*/}
@@ -22,7 +30,7 @@ const Header: React.FC<{}> = () => {
               <ShoppingCartIcon sx={{ fontSize: 60, color: "#282c34" }} />
             </div>
           </Link>
-          <span className="Cart-itemsNumber">3</span>
+          <span className="Cart-itemsNumber">{totalItems}</span>
         </div>
       </div>
     </div>

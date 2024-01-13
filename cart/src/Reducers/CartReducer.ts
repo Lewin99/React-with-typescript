@@ -1,7 +1,6 @@
-import { CartAction } from "../Actions/actions";
-import { actionTypes } from "../Actions/actionTypes";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface CartItem {
+export interface CartItem {
   id: number;
   name: string;
   price: number;
@@ -16,24 +15,27 @@ const initialState: CartState = {
   items: [],
 };
 
-const cartReducer = (
-  state: CartState = initialState,
-  action: CartAction
-): CartState => {
-  switch (action.type) {
-    case actionTypes.ADD_TO_CART:
-      return {
-        ...state,
-        items: [...state.items, action.payload.item],
-      };
-    case actionTypes.REMOVE_FROM_CART:
-      return {
-        ...state,
-        items: state.items.filter((item) => item.id !== action.payload.itemId),
-      };
-    default:
-      return state;
-  }
-};
+const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {
+    addToCart: (state, action: PayloadAction<CartItem>) => {
+      const { id, name, price, imageUrl } = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
 
-export default cartReducer;
+      if (existingItem) {
+        alert("the item already in the cart");
+      } else {
+        state.items.push({ id, name, price, imageUrl });
+        alert("the  product has been added");
+      }
+    },
+    removeFromCart: (state, action: PayloadAction<number>) => {
+      const itemId = action.payload;
+      state.items = state.items.filter((item) => item.id !== itemId);
+    },
+  },
+});
+
+export const { addToCart, removeFromCart } = cartSlice.actions;
+export default cartSlice.reducer;
